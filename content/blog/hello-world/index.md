@@ -20,3 +20,5 @@ Oh, and here's a great quote from this Wikipedia on
 > firm-textured, round yolk that is bright orange-red in color.
 
 ![Chinese Salty Egg](./salty_egg.jpg)
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m missing things like CTRL+ALT+4 to grab screenshots, but I&#39;ll survive</p>&mdash; Story Teller (@mykeels) <a href="https://twitter.com/mykeels/status/1260304679990448131?ref_src=twsrc%5Etfw">May 12, 2020</a></blockquote>
