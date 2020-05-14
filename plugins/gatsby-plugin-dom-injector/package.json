@@ -1,0 +1,6 @@
+{
+    "name": "gatsby-plugin-dom-injector",
+    "version": "0.0.1",
+    "author": "Aleem Isiaka <aleem.isiaka@gmail.com>",
+    "description": "Manipulates DOM to include current date in every post page"
+}
