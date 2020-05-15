@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import CommentForm from "../components/commentForm"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -43,6 +44,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
+        <section>
+          <h1>Comments</h1>
+          <CommentForm />
+        </section>
         <footer>
           <Bio />
         </footer>
