@@ -5,7 +5,7 @@ const inputStyle = {
   padding: "8px",
 }
 
-function usePostComment() {
+function usePostComment({ slug, websiteURL }) {
   const nameRef = useRef()
   const contentRef = useRef()
 
@@ -28,8 +28,8 @@ function usePostComment() {
     }
     setSaveMessage("Saving comment")
     const data = {
-      website: "https://private-blog.netlifyapp.com",
-      slug: "/new-beginnings",
+      website: websiteURL || "https://private-blog.netlifyapp.com",
+      slug: slug || "/empty-slug",
       name,
       content,
     }
@@ -58,14 +58,14 @@ function usePostComment() {
   return { handleSubmit, nameRef, contentRef, errorMessage, saveMessage }
 }
 
-function CommentForm() {
+function CommentForm({ slug, websiteURL }) {
   const {
     handleSubmit,
     nameRef,
     contentRef,
     errorMessage,
     saveMessage,
-  } = usePostComment()
+  } = usePostComment({ slug, websiteURL })
   return (
     <form onSubmit={handleSubmit}>
       <input ref={nameRef} style={{ ...inputStyle }} placeholder="Your Name" />

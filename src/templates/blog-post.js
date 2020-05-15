@@ -1,11 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import CommentForm from "../components/commentForm"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import CommentForm from "../components/commentForm"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -46,7 +46,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
         <section>
           <h1>Comments</h1>
-          <CommentForm />
+          <CommentForm
+            slug={post.fields.slug}
+            websiteURL={data.site.siteMetadata.url}
+          />
         </section>
         <footer>
           <Bio />
@@ -96,6 +99,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
