@@ -12,48 +12,51 @@ function usePostComment({ slug, websiteURL }) {
   const [errorMessage, setError] = useState("")
   const [saveMessage, setSaveMessage] = useState("")
 
-  const handleSubmit = useCallback(e => {
-    setError("")
-    setSaveMessage("")
-    e.preventDefault()
-    const name = nameRef.current.value
-    const content = contentRef.current.value
-    if (!name) {
-      setError("Name is not required")
-      return
-    }
-    if (!content) {
-      setError("Comment is required")
-      return
-    }
-    setSaveMessage("Saving comment")
-    const data = {
-      website: websiteURL || "https://private-blog.netlifyapp.com",
-      slug: slug || "/empty-slug",
-      name,
-      content,
-    }
-    fetch(
-      "https://cors-anywhere.herokuapp.com/gatsbyjs-comment-server.herokuapp.com/comments",
-      {
-        body: JSON.stringify(data),
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    ).then(async res => {
-      const json = await res.json()
+  const handleSubmit = useCallback(
+    e => {
+      setError("")
       setSaveMessage("")
-      if (!res.ok) {
-        setError(json.error.msg)
+      e.preventDefault()
+      const name = nameRef.current.value
+      const content = contentRef.current.value
+      if (!name) {
+        setError("Name is not required")
+        return
       }
-      setSaveMessage("Comment saved. Thank you!")
-      nameRef.current.value = ""
-      contentRef.current.value = ""
-    })
-  })
+      if (!content) {
+        setError("Comment is required")
+        return
+      }
+      setSaveMessage("Saving comment")
+      const data = {
+        website: websiteURL || "https://private-blog.netlifyapp.com",
+        slug: slug || "/empty-slug",
+        name,
+        content,
+      }
+      fetch(
+        "https://cors-anywhere.herokuapp.com/gatsbyjs-comment-server.herokuapp.com/comments",
+        {
+          body: JSON.stringify(data),
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      ).then(async res => {
+        const json = await res.json()
+        setSaveMessage("")
+        if (!res.ok) {
+          setError(json.error.msg)
+        }
+        setSaveMessage("Comment saved. Thank you!")
+        nameRef.current.value = ""
+        contentRef.current.value = ""
+      })
+    },
+    [slug, websiteURL]
+  )
 
   return { handleSubmit, nameRef, contentRef, errorMessage, saveMessage }
 }

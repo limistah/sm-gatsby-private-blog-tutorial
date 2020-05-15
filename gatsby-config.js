@@ -92,7 +92,7 @@ module.exports = {
     "gatsby-plugin-dom-injector",
     {
       resolve: "gatsby-source-comment-server",
-      options: {},
+      options: { website: "https://private-blog.netlifyapp.com" },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

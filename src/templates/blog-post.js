@@ -6,12 +6,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import CommentForm from "../components/commentForm"
+import CommentListing from "../components/commentListing"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -46,6 +46,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
         <section>
           <h1>Comments</h1>
+          <CommentListing comments={post.comments} />
           <CommentForm
             slug={post.fields.slug}
             websiteURL={data.site.siteMetadata.url}
@@ -101,6 +102,11 @@ export const pageQuery = graphql`
       html
       fields {
         slug
+      }
+      comments {
+        _id
+        content
+        name
       }
       frontmatter {
         title
