@@ -53,6 +53,7 @@ function usePostComment({ slug, websiteURL }) {
         setSaveMessage("Comment saved. Thank you!")
         nameRef.current.value = ""
         contentRef.current.value = ""
+        fetch("/__refresh")
       })
     },
     [slug, websiteURL]

@@ -6062,6 +6062,13 @@ gatsby-remark-smartypants@^2.3.1:
     retext-smartypants "^3.0.3"
     unist-util-visit "^1.4.1"
 
+gatsby-source-comment-server@^1.1.0-0:
+  version "1.1.0-0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-comment-server/-/gatsby-source-comment-server-1.1.0-0.tgz#1a6222a16f382aab1303e3d2a073a73ead304b47"
+  integrity sha512-8KUjbWjqWB6Tf2/EXt5eat/p/3fvjEW7VnEUyeffesPPfivOzaO8rOV/Zbq+d8nGtCOoovs3LPo/mShk6+xSzw==
+  dependencies:
+    axios "^0.19.2"
+
 gatsby-source-filesystem@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.3.1.tgz#a5c76bdfbb13fcbf771b9ecd9b77b6d955586b78"
