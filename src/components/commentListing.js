@@ -8,7 +8,10 @@ function commentListing({ comments }) {
           return (
             <li>
               <div>
-                <strong>{comment.name}</strong>:
+                <strong>
+                  {comment.name} at {comment.updatedAt}
+                </strong>
+                :
               </div>
               <div>{comment.content}</div>
               <hr />
