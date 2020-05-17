@@ -8,10 +8,8 @@ function commentListing({ comments }) {
           return (
             <li>
               <div>
-                <strong>
-                  {comment.name} at {comment.updatedAt}
-                </strong>
-                :
+                <strong>{comment.name}</strong> at{" "}
+                {new Date(comment.updatedAt).toLocaleDateString()}:
               </div>
               <div>{comment.content}</div>
               <hr />

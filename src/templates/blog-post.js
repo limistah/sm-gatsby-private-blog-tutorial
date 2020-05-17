@@ -107,6 +107,7 @@ export const pageQuery = graphql`
         _id
         content
         name
+        updatedAt
       }
       frontmatter {
         title
